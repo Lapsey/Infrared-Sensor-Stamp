@@ -1,53 +1,16 @@
 'Variables
-leftIR     VAR Bit
-rightIR    VAR Bit
-run        VAR Bit
-leftIRPin  VAR Byte
-rightIRPin VAR Byte
-left       VAR Byte
-right      VAR Byte
+leftIR  VAR Bit
+rightIR VAR Bit
 
 'Main
-right = 12
-left = 13
-
-DO WHILE (run = 1)
-    GOSUB checkIRs
-    
-    DEBUG HOME, "Left = ", BIN1 leftIR
-LOOP
 
 END
 
 'Subroutines
-checkIRs:
-    FREQOUT 12, 1, 38500
-    leftIR = IN13
+checkSensors:
+    FREQOUT 11, 1, 38500 'LEFT IR
+    leftIR = IN12
 
-    FREQOUT 3, 1, 38500
+    FREQOUT 3, 1, 38500 'RIGHT IR
     rightIR = IN2
-RETURN
-
-goForward:
-  FOR counter = 1 TO 15
-     PULSOUT right, 850
-     PULSOUT left, 650
-     PAUSE 20
-  NEXT
-RETURN
-
-turnRight:
-  FOR counter = 1 TO 26
-     PULSOUT right, 850
-     PULSOUT left, 850
-     PAUSE 20
-  NEXT
-RETURN
-
-turnLeft:
-  FOR counter = 1 TO 26
-     PULSOUT right, 650
-     PULSOUT left, 650
-     PAUSE 20
-  NEXT
 RETURN
