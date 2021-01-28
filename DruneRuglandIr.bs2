@@ -1,8 +1,12 @@
 'Variables
 leftIR  VAR Bit
 rightIR VAR Bit
+left    VAR Byte
+right   VAR Byte
 
 'Main
+right = 12
+left = 13
 
 END
 
@@ -14,3 +18,28 @@ checkSensors:
     FREQOUT 3, 1, 38500 'RIGHT IR
     rightIR = IN2
 RETURN
+
+goForward:
+  FOR counter = 1 TO 15
+     PULSOUT right, 850
+     PULSOUT left, 650
+     PAUSE 20
+  NEXT
+RETURN
+
+turnRight:
+  FOR counter = 1 TO 26
+     PULSOUT right, 850
+     PULSOUT left, 850
+     PAUSE 20
+  NEXT
+RETURN
+
+turnLeft:
+  FOR counter = 1 TO 26
+     PULSOUT right, 650
+     PULSOUT left, 650
+     PAUSE 20
+  NEXT
+RETURN
+
