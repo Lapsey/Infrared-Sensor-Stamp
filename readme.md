@@ -3,5 +3,7 @@
 ## TODO
 * [X] add check sensors subroutine
 * [X] add the movement subs
-* [ ] add the movement based on sensor
-* [ ] figure the rest out
+* [ ] add roaming logic
+* [ ] test boe-bot
+* [ ] optomize
+* [ ] submit to Mr. Pearce 

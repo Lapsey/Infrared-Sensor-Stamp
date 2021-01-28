@@ -43,3 +43,9 @@ turnLeft:
   NEXT
 RETURN
 
+backUp:
+  FOR counter = 1 TO 90
+    PULSOUT right, 650
+    PULSOUT left, 850
+  NEXT
+RETURN
